@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?PATH_INFO=$1 [L,QSA]
+<ifmodule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A604800
+<filesmatch ".(jpg|JPG|gif|GIF|png|css|ico|js)$">
+    ExpiresDefault "access plus 7 day"
+</filesmatch>
+</ifmodule>
