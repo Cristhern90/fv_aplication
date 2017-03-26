@@ -1,0 +1,44 @@
+@import "bootstrap-less/bootstrap/bootstrap.less";
+body{
+	background-color: black;
+}
+.lista-juegos{
+	h1{
+		color: white;
+	}
+	.container();
+	.juegos{
+		margin-bottom: 1%;
+		.juego{
+			list-style: none;
+			margin-top: 1%;
+			a{
+				text-decoration: none;
+				color: white;
+				.jue{
+					.make-row();
+					img{
+						.img-responsive();
+						.make-sm-column(2);
+						display: inline-block;
+					}
+					h3{
+						.make-sm-column(8);
+						display: inline-block;
+					}
+					background-color: #DB5313;
+				}
+			}
+		}
+
+	}
+	.nuevo{
+		.make-row();
+			a{
+				.make-sm-column-offset(5);
+				.make-sm-column(6);
+			}
+			margin-top: 2%;
+			margin-bottom: 2%;
+		}
+}

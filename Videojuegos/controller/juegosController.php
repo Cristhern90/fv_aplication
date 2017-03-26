@@ -23,7 +23,7 @@ class juegosController implements Controller {
             View::show("juego_list_view.php", $data);
         } else {
             if ($pet[1] == "nuevo") {
-                $desarrolladoras = DesarrolladoraDAO::get_desarrolladoras();
+                $desarrolladoras = EmpresaDAO::get_empresas();
                 $plataformas = PlataformaDAO::get_plataformas();
                 $data["desarrolladoras"] = $desarrolladoras;
                 $data["plataformas"] = $plataformas;
@@ -39,20 +39,50 @@ class juegosController implements Controller {
     public static function post($pet) {
         $titulo = $_POST["titulo"];
         $subtitulo = $_POST["subtitulo"];
-        $desarrolladora_id = $_POST["debelop"];
-        $lista_plataformas = array();
-        $count_plataformas = PlataformaDAO::count_platforms();
-        
-        $count = 0;
-        for ($i = 0; $i <= $count_plataformas; $i++) {
+        $fecha_lanzamiento=$_POST["fecha"];
+        $lista_desarrolladoras=array();
+        $lista_productoras=array();
+        $lista_plataformas=array();
+        $countd = 0;
+        $countpr = 0;
+        $countp = 0;
+        for ($i = 1; $i <= 5; $i++) {
+            $arr_key = "des" . $i;
+            if (array_key_exists($arr_key, $_POST)) {
+                $desarrolladora = EmpresaDAO::get_empresas_by_id($_POST[$arr_key]);
+                $lista_desarrolladoras[$countd] = $desarrolladora;
+                $countd++;
+            }
+        }
+        for ($i = 1; $i <= 5; $i++) {
+            $arr_key = "pro" . $i;
+            if (array_key_exists($arr_key, $_POST)) {
+                $productora = EmpresaDAO::get_empresas_by_id($_POST[$arr_key]);
+                $lista_productoras[$countpr] = $productora;
+                $countpr++;
+            }
+        }
+        for ($i = 1; $i <= 5; $i++) {
             $arr_key = "plat" . $i;
             if (array_key_exists($arr_key, $_POST)) {
                 $plataforma = PlataformaDAO::get_plataforma_by_id($_POST[$arr_key]);
-                $lista_plataformas[$count] = $plataforma;
-                $count++;
+                $lista_plataformas[$countp] = $plataforma;
+                $countp++;
             }
         }
-        JuegoDAO::insert_juego($titulo, $subtitulo, $desarrolladora_id, $lista_plataformas);
+        $dir_subida = 'C:\\xampp\\htdocs\\Videojuegos\\data\\img';
+        $fichero_subido = $dir_subida . "\\" . basename($_FILES['imagen']['name']);
+        echo '<pre>';
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], utf8_decode($fichero_subido))) {
+            echo "El fichero es válido y se subió con éxito.\n";
+        } else {
+            echo "¡Posible ataque de subida de ficheros!\n";
+        }
+        print "</pre>";
+
+
+        $caratula = $_FILES["imagen"]["name"];
+        JuegoDAO::insert_juego($titulo, $subtitulo, $fecha_lanzamiento, $lista_desarrolladoras, $lista_productoras, $lista_plataformas, $caratula);
         $data["pet"] = $pet[0];
         View::show("redirect_page.php", $data);
     }

@@ -10,25 +10,28 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php include_once './header.php';?>
+        <?php include_once 'header.php'; ?>
         <h1>Añadir un nuevo juego al usuario</h1>
         <form method="post" action="">
+
             <select name="juego">
                 <?php
                 foreach ($juegos as $juego) {
-                    $bool=false;
-                    foreach ($juegos_exist as $ju) {
-                        $id1 = $juego->getId();
-                        $id2 = $ju["juego"]->getId();
-                        if ($id1 != $id2) {
-                            $bool=true;
-                        }else{
-                            $bool=false;
-                            break;
+                    $bool = true;
+                    if (sizeof($juegos_exist)) {
+                        foreach ($juegos_exist as $ju) {
+                            $id1 = $juego->getId();
+                            $id2 = $ju["juego"]->getId();
+                            if ($id1 != $id2) {
+                                $bool = true;
+                            } else {
+                                $bool = false;
+                                break;
+                            }
                         }
                     }
-                    if($bool){
-                        echo '<option value="'.$juego->getId().'">'.$juego->getCompleteName().'</option>';
+                    if ($bool) {
+                        echo '<option value="' . $juego->getId() . '">' . $juego->getCompleteName() . '</option>';
                     }
                 }
                 ?>

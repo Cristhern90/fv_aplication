@@ -1,11 +1,6 @@
 <header>
-    <a href="/Videojuegos">Inicio</a>
-    <a href="/Videojuegos/juegos">Juegos</a>
-    <a href="/Videojuegos/desarrolladoras">Desarrolladoras</a>
-    <a href="/Videojuegos/editoras">Editoras</a> 
-    <a href="/Videojuegos/plataformas">Plataformas</a> 
-    <a href="/Videojuegos/usuarios">Usuarios</a> 
-    
+
+
     <div>
         <?php
         //$_SESSION["usuario"] = null;
@@ -28,6 +23,11 @@
             }
             ?>
         <?php } else { ?>
+            <a href="/Videojuegos">Inicio</a>
+            <a href="/Videojuegos/juegos">Juegos</a>
+            <a href="/Videojuegos/empresas">Empresas</a>
+            <a href="/Videojuegos/plataformas">Plataformas</a> 
+            <a href="/Videojuegos/usuarios">Usuarios</a> 
             <a href="usuarios/pri"><?php
                 $usuario = unserialize($_SESSION["usuario"]);
                 echo $usuario->getNick();

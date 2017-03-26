@@ -10,17 +10,15 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php include_once 'header.php';?>
-        <h1><?php echo $juego->getTitulo() . ":" . $juego->getSubtitulo(); ?></h1>
+        <?php include_once 'header.php'; ?>
+        <h1><?php echo $juego->getCompleteName(); ?></h1>
+        
         <ul>
-            <li>Desarrolladora: <?php echo $juego->getDesarrolladora()->getname(); ?></li>
-            <li>Plataformas
-                <ul>
-                    <?php foreach ($juego->getplataformas() as $plataforma) { ?>
-                    <li><a href="/VideoJuegos/plataformas/<?php echo $plataforma->getId()?>"><?php echo $plataforma->getName() . " (" . $plataforma->getCompany() . ")" ?></a></li>
-                    <?php } ?>
-                </ul>
-            </li>
+            <li>Fecha de estreno: <?php echo $juego->getFecha_lanzamiento();?></li>
+            <li>Desarrolladora: <?php echo $juego->getDesarrolladoras(); ?></li>
+            <li>Productoras: <?php echo $juego->getProductoras(); ?></li>
+            <li>Plataformas: <?php echo $juego->getPlataformas(); ?></li>
+            <li><img src="/Videojuegos/data/img/<?php echo $juego->getCaratula() ?>" alt="<?php echo $juego->getCaratula() ?>"></li>
         </ul>
     </body>
 </html>

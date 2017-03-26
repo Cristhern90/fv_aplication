@@ -84,4 +84,14 @@ class PlataformaDAO {
         }
         return $juegos;
     }
+    
+    static function insert_plataforma_jugada($usuario_id, $juego_id, $plataforma_id){
+        $con = SPDO::singleton();
+        $query = "INSERT INTO `plataforma_has_jugados`(`plataforma_id`, `jugados_juegos_id`, `jugados_Usuario_id`) VALUES (:plataforma, :juego, :usuario)";
+        $stmt=$con->prepare($query);
+        $stmt->bindParam(":usuario", $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(":juego", $juego_id, PDO::PARAM_INT);
+        $stmt->bindParam(":plataforma", $plataforma_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

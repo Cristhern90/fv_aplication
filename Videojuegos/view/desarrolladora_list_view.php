@@ -17,11 +17,11 @@ and open the template in the editor.
             // put your code here
             foreach ($desarrolladoras as $desarrolladora) {
                 ?>
-            <li><a href="desarrolladoras/<?php echo $desarrolladora->getId(); ?>"><?php echo $desarrolladora->getName(); ?></a></li>
+            <li><a href="empresas/<?php echo $desarrolladora->getId(); ?>"><?php echo $desarrolladora->getName(); ?></a></li>
             <?php } ?>
         </ul>
         <div>
-            <a href="desarrolladoras/nueva">Nueva Desarrolladora</a>
+            <a href="empresas/nueva">Nueva Empresa</a>
         </div>
     </body>
 </html>

@@ -12,12 +12,13 @@
  * @author Cristian
  */
 class FrontController {
+
     //put your code here
-    
-    static function main(){
+
+    static function main() {
         session_start();
         require 'DAO/JuegoDAO.php';
-        require 'DAO/DesarrolladoraDAO.php';
+        require 'DAO/EmpresaDAO.php';
         require 'DAO/PlataformaDAO.php';
         require 'DAO/UsuarioDAO.php';
         require 'DAO/EditoraDAO.php';
@@ -26,27 +27,27 @@ class FrontController {
         require 'libs/Config.php';
         require 'libs/configuracion.php';
         require 'models/JuegoModel.php';
-        require 'models/DesarrolladoraModel.php';
+        require 'models/EmpresaModel.php';
         require 'models/PlataformaModel.php';
         require 'models/UsuarioModel.php';
         require 'models/EditoraModel.php';
         require 'controller/Controller.php';
         require 'controller/juegosController.php';
-        require 'controller/desarrolladorasController.php';
+        require 'controller/empresasController.php';
         require 'controller/plataformasController.php';
         require 'controller/usuariosController.php';
-        require 'controller/editorasController.php';
-        
-        
+
+
         if (!array_key_exists("PATH_INFO", $_GET)) {
             $data["hola"] = "hola";
             View::show("inici.php", $data);
         } else {
-            $pet= $_GET["PATH_INFO"];
+
+            $pet = $_GET["PATH_INFO"];
             $peticion = explode("/", $pet);
-            $cont=$peticion[0]."Controller";
+            $cont = $peticion[0] . "Controller";
             $metodo = strtolower($_SERVER['REQUEST_METHOD']);
-            switch ($metodo){
+            switch ($metodo) {
                 case "get":
                     $cont::get($peticion);
                     break;
@@ -54,8 +55,7 @@ class FrontController {
                     $cont::post($peticion);
                     break;
             }
-            
         }
-        
     }
+
 }
