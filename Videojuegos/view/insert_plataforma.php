@@ -10,14 +10,25 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php include_once 'header.php';?>
-        <h1>Añadir una nueva desarrolladora</h1>
-        <form method="post">
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name">
-            <label for="company">Compania</label>
-            <input type="text" name="company" id="name">
-            <input type="submit" value="Guardar">
-        </form>
+        <?php include_once 'header.php'; ?>
+        <div class="cont">
+            <div class="row">
+
+                <h1>Añadir una nueva plataforma</h1>
+                <form method="post">
+                    <div class="col-xs-3 col-xs-offset-3">
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="company">Compania</label>
+                        <input type="text" name="company" id="name">
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-5">
+                        <input type="submit" value="Guardar" style="margin: 25%;">
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

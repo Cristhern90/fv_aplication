@@ -67,9 +67,8 @@ class UsuarioDAO {
         $stmt->execute();
         $l = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($l["id"] != null) {
-            if ($pass == $l["password"]) {
-                
-                $usuario=  UsuarioDAO::get_usuario_by_id($l["id"]);
+            if (password_verify($pass, $l["password"])) {
+                $usuario = UsuarioDAO::get_usuario_by_id($l["id"]);
                 return $usuario;
             } else {
                 return "error";
@@ -78,25 +77,23 @@ class UsuarioDAO {
             return "error";
         }
     }
-    
-    
 
     static function jugar_juego($usuario_id, $juego_id) {
         $con = SPDO::singleton();
         $query = "insert into jugados (juegos_id,usuario_id,terminado) values (:juegos_id,:usuario_id,0)";
         $stmt = $con->prepare($query);
-        $stmt->bindParam(":juegos_id",$juego_id,PDO::PARAM_INT);
-        $stmt->bindParam(":usuario_id",$usuario_id,PDO::PARAM_INT);
+        $stmt->bindParam(":juegos_id", $juego_id, PDO::PARAM_INT);
+        $stmt->bindParam(":usuario_id", $usuario_id, PDO::PARAM_INT);
         $stmt->execute();
     }
-    
-    static function terminar_juego($juego_id, $usuario_id,$ter){
+
+    static function terminar_juego($juego_id, $usuario_id, $ter) {
         $con = SPDO::singleton();
         $query = "UPDATE `jugados` SET terminado=:ter WHERE juegos_id=:juegos_id and usuario_id=:usuario_id";
         $stmt = $con->prepare($query);
-        $stmt->bindParam(":juegos_id",$juego_id,PDO::PARAM_INT);
-        $stmt->bindParam(":usuario_id",$usuario_id,PDO::PARAM_INT);
-        $stmt->bindParam(":ter",$ter,PDO::PARAM_INT);
+        $stmt->bindParam(":juegos_id", $juego_id, PDO::PARAM_INT);
+        $stmt->bindParam(":usuario_id", $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(":ter", $ter, PDO::PARAM_INT);
         $stmt->execute();
     }
 

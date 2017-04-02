@@ -24,6 +24,7 @@ class usuariosController implements Controller {
             View::show("perfil_publico_list.php", $data);
         } else {
             if ($pet[1] == "pri") {
+
                 $usuario = unserialize($_SESSION["usuario"]);
                 $juegos = UsuarioDAO::juegos_by_usuario_id($usuario->getId());
                 if (!array_key_exists(2, $pet)) {
@@ -59,7 +60,6 @@ class usuariosController implements Controller {
     }
 
     public static function post($pet) {
-        echo "hola";
         if (!array_key_exists(1, $pet)) {
             $nick = $_POST["nickname"];
             $pass = $_POST["password"];
@@ -76,9 +76,9 @@ class usuariosController implements Controller {
                 View::show("perfil_privado.php", $data);
             }
         } else {
-            
+
             if ($pet[1] == "pri") {
-                
+
                 if (array_key_exists(2, $pet)) {
 
                     if ($pet[2] == "añadir") {
@@ -100,16 +100,16 @@ class usuariosController implements Controller {
                         foreach ($plataformas as $plataforma) {
                             $name = "plat" . $plataforma->getId();
                             if (array_key_exists($name, $_POST)) {
-                                $usuario_id= $usuario->getId();
-                                $juego_id= $juego->getId();
-                                $plataforma_id= $plataforma->getId();
+                                $usuario_id = $usuario->getId();
+                                $juego_id = $juego->getId();
+                                $plataforma_id = $plataforma->getId();
                                 PlataformaDAO::insert_plataforma_jugada($usuario_id, $juego_id, $plataforma_id);
                             }
                         }
                         View::show("inici.php", $data);
                     }
                 } else if (!array_key_exists("juego", $_POST)) {
-                    
+
                     $nick = $_POST["nickname"];
                     $pass = $_POST["password"];
                     $usuario = UsuarioDAO::login($nick, $pass);
@@ -120,7 +120,7 @@ class usuariosController implements Controller {
                     $data["juegos"] = $juegos;
                     View::show("perfil_privado.php", $data);
                 } else {
-                    
+
                     $usuario = unserialize($_SESSION["usuario"]);
                     $juego_id = $_POST["juego"];
                     $ter = $_POST["terminado"];

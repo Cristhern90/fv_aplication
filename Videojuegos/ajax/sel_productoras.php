@@ -16,7 +16,11 @@ class sel_plat {
         }
         for ($i = 1; $i <= $num; $i++) {
             $ret.= '<div>Productora ' . $i . ' <select name="pro' . $i . '">';
-            $empresas = EmpresaDAO::get_empresas();
+            $empresas = EmpresaDAO::get_editoras();
+            $emp=EmpresaDAO::get_empresas();
+            foreach ($emp as $e){
+                array_push($empresas, $e);
+            }
             foreach ($empresas as $empresa) {
                 $ret.='<option value="' . $empresa->getId() . '">' . $empresa->getName() . '</option>';
             }

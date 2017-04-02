@@ -11,14 +11,16 @@ and open the template in the editor.
     </head>
     <body>
         <?php include_once 'header.php'; ?>
-        <h1><?php echo $juego->getCompleteName(); ?></h1>
-        
-        <ul>
-            <li>Fecha de estreno: <?php echo $juego->getFecha_lanzamiento();?></li>
-            <li>Desarrolladora: <?php echo $juego->getDesarrolladoras(); ?></li>
-            <li>Productoras: <?php echo $juego->getProductoras(); ?></li>
-            <li>Plataformas: <?php echo $juego->getPlataformas(); ?></li>
-            <li><img src="/Videojuegos/data/img/<?php echo $juego->getCaratula() ?>" alt="<?php echo $juego->getCaratula() ?>"></li>
-        </ul>
+        <div class="cont">
+            <h1><?php echo $juego->getCompleteName(); ?></h1>
+
+            <ul>
+                <li>Fecha de estreno: <?php echo $juego->getFecha_lanzamiento(); ?></li>
+                <li>Desarrolladora: <?php echo $juego->getDesarrolladoras(); ?></li>
+                <li>Productoras: <?php echo $juego->getProductoras(); ?></li>
+                <li>Plataformas: <?php echo $juego->getPlataformas(); ?></li>
+                <li><img src="/Videojuegos/data/img/<?php echo $juego->getCaratula() ?>" alt="<?php echo $juego->getCaratula() ?>"></li>
+            </ul>
+        </div>
     </body>
 </html>

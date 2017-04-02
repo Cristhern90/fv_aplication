@@ -17,7 +17,7 @@ class JuegoDAO {
 
     static function get_juegos() {
         $con = SPDO::singleton();
-        $query = "select * from juegos";
+        $query = "select * from juegos order by titulo";
         $stmt = $con->prepare($query);
         $stmt->execute();
         $a = $stmt->fetchAll(PDO::FETCH_ASSOC);

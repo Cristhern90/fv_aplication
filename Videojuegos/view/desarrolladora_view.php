@@ -10,11 +10,15 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1><?php echo $desarrolladora->getName(); ?></h1>
-        <ul>
-            <?php foreach ($juegos as $juego) { ?>
-                <li><a href="/Videojuegos/juegos/<?php echo $juego->getId() ?>"><?php echo $juego->getCompleteName(); ?></a></li>
-            <?php } ?>
-        </ul>
+        <?php include_once 'header.php'; ?>
+        <div class="cont">
+            <h1><?php echo $desarrolladora->getName(); ?></h1>
+            <ul>
+                <?php
+                foreach ($juegos as $juego) { ?>
+                    <li><a href="/Videojuegos/juegos/<?php echo $juego->getId() ?>"><?php echo $juego->getCompleteName(); ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
     </body>
 </html>

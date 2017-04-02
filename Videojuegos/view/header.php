@@ -1,7 +1,6 @@
-<header>
-
-
-    <div>
+<link href="/Videojuegos/data/css/header-footer.css" rel="stylesheet" type="text/css"/>
+<header class="container-fluid">
+    <div class="menu" >
         <?php
         //$_SESSION["usuario"] = null;
         if (!array_key_exists("usuario", $_SESSION)) {
@@ -23,12 +22,12 @@
             }
             ?>
         <?php } else { ?>
-            <a href="/Videojuegos">Inicio</a>
-            <a href="/Videojuegos/juegos">Juegos</a>
-            <a href="/Videojuegos/empresas">Empresas</a>
-            <a href="/Videojuegos/plataformas">Plataformas</a> 
-            <a href="/Videojuegos/usuarios">Usuarios</a> 
-            <a href="usuarios/pri"><?php
+            <a class="item1" href="/Videojuegos">Inicio</a>
+            <a class="item1" href="/Videojuegos/juegos">Juegos</a>
+            <a class="item1" href="/Videojuegos/empresas">Empresas</a>
+            <a class="item1" href="/Videojuegos/plataformas">Plataformas</a> 
+            <a class="item1" href="/Videojuegos/usuarios">Usuarios</a> 
+            <a class="item1" href="/Videojuegos/usuarios/pri"><?php
                 $usuario = unserialize($_SESSION["usuario"]);
                 echo $usuario->getNick();
                 ?></a>

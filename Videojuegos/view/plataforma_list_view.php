@@ -10,15 +10,19 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php include_once 'header.php';?>
-        <h1>Plataformas</h1>
-        <ul>
-            <?php foreach ($plataformas as $plataforma) { ?>
-            <li><a href="plataformas/<?php echo $plataforma->getId()?>"><?php echo $plataforma->getName() . " (" . $plataforma->getCompany() . ")"; ?></a></li>
-            <?php } ?>
-        </ul>
-        <div>
-            <a href="plataformas/nueva">Nueva Plataforma</a>
+        <?php include_once 'header.php'; ?>
+        <div class="cont">
+            <div class="col-xs-10 col-xs-offset-1">
+                <h1>Plataformas</h1>
+                <ul>
+                    <?php foreach ($plataformas as $plataforma) { ?>
+                        <li><a href="plataformas/<?php echo $plataforma->getId() ?>"><?php echo $plataforma->getName() . " (" . $plataforma->getCompany() . ")"; ?></a></li>
+                    <?php } ?>
+                </ul>
+                <div>
+                    <a href="plataformas/nueva">Nueva Plataforma</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>

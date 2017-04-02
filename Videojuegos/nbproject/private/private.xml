@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Videojuegos/index.php</file>
             <file>file:/C:/xampp/htdocs/Videojuegos/view/juego_list_view.php</file>
-            <file>file:/C:/xampp/htdocs/Videojuegos/view/add_juego_usuario.php</file>
-            <file>file:/C:/xampp/htdocs/Videojuegos/controller/juegosController.php</file>
-            <file>file:/C:/xampp/htdocs/Videojuegos/data/less/juegos.less</file>
-            <file>file:/C:/xampp/htdocs/Videojuegos/view/insert_juego.php</file>
-            <file>file:/C:/xampp/htdocs/Videojuegos/view/redirect_page.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/index.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/controller/usuariosController.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/desarrolladora_list_view.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/perfil_publico.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/controller/empresasController.php</file>
             <file>file:/C:/xampp/htdocs/Videojuegos/DAO/JuegoDAO.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/desarrolladora_view.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/plataforma_view.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/juego_view.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/perfil_privado.php</file>
+            <file>file:/C:/xampp/htdocs/Videojuegos/view/perfil_publico_list.php</file>
         </group>
     </open-files>
 </project-private>

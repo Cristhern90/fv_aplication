@@ -9,14 +9,18 @@ class sel_plat {
     static function conection() {
         $num = $_POST["num"];
         $ret = "";
-        if($num>5){
-            $num=5;
-        }if($num<1){
-            $num=1;
+        if ($num > 5) {
+            $num = 5;
+        }if ($num < 1) {
+            $num = 1;
         }
         for ($i = 1; $i <= $num; $i++) {
             $ret.= '<div>Desarrolladora ' . $i . ' <select name="des' . $i . '">';
-            $desarrolladoras = EmpresaDAO::get_empresas();
+            $desarrolladoras = EmpresaDAO::get_desarrolladoras();
+            $emp = EmpresaDAO::get_empresas();
+            foreach ($emp as $e) {
+                array_push($desarrolladoras, $e);
+            }
             foreach ($desarrolladoras as $desarrolladora) {
                 $ret.='<option value="' . $desarrolladora->getId() . '">' . $desarrolladora->getName() . '</option>';
             }

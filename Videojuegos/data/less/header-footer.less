@@ -1,0 +1,60 @@
+@import "bootstrap-less/bootstrap/bootstrap.less";
+@import "variables.less";
+header{
+	.menu{
+		.make-row;
+		background-color: @color3;
+		a{
+			color: @color2;
+			text-align: center;
+		}
+		a:hover{
+			color: @color2;
+		}
+		.item1{
+			.make-xs-column(2);
+			padding-top: 1%;
+			padding-bottom: 1%;
+		}
+	}
+}
+body{
+	background-color: @color1;
+	color:@color2;
+	h1{
+		text-align: center;
+	}
+	a{
+		color:@color3;
+	}
+	a:hover{
+		color: @color3;
+		font-weight: 900;
+		text-decoration: none;
+	}
+	.cont{
+		.container;
+	}
+	.tablepri{
+
+		text-align: center;
+		td{
+			border: 1px @color3 solid;
+
+		}
+	}
+	.enlaces{
+		padding-top: 1%;
+		padding-bottom: 1%;
+	}
+	input[type="button"],input[type="submit"],input[type="file"]{
+		background-color: @color3;
+	}
+	input{
+		color: @color1;
+		background-color: @color2;
+	}
+	select{
+		color: @color1;
+	}
+}
